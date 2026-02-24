@@ -1,78 +1,135 @@
-import Image from "next/image";
-import { Geist, Geist_Mono } from "next/font/google";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
 export default function Home() {
   return (
-    <div
-      className={`${geistSans.className} ${geistMono.className} flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black`}
-    >
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the index.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+    <main className="holding-root">
+      <div className="holding-inner">
+        <div className="logo">
+          <svg
+            width="64"
+            height="64"
+            viewBox="0 0 64 64"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <polygon points="32,2 62,32 32,62 2,32" fill="#bf5520" />
+            <polygon
+              points="32,2 62,32 32,46 2,32"
+              fill="#111320"
+              opacity="0.9"
+            />
+            <polygon points="12,32 32,14 52,32 32,24" fill="#d9683a" />
+            <polygon
+              points="22,44 32,38 42,44 32,48"
+              fill="#d9683a"
+              opacity="0.5"
+            />
+          </svg>
+          <div className="wordmark">
+            Phand<span className="ai">.ai</span>
+          </div>
+        </div>
+        <p className="font-serif font-bold text-4xl text-on-dark tracking-tight">
+          Your business, always on.
+        </p>
+        <div className="hero">
+          <h1 className="hero-heading mb-8">Coming Soon</h1>
+          <p className="hero-sub">
+            AI-powered chatbots built for the hustle.
+            <br />
+            We&apos;re putting the finishing touches on something sharp.
           </p>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
+
+        <div className="waitlist">
+          <div className="waitlist-inner">
+            <input
+              type="email"
+              placeholder="your@email.com"
+              className="waitlist-input"
             />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs/pages/getting-started?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+            <button className="waitlist-btn">Get Early Access</button>
+          </div>
+          <p className="waitlist-note">
+            No spam. Just a heads-up when we launch.
+          </p>
         </div>
-      </main>
-    </div>
+
+        <div className="services">
+          <div className="service-card">
+            <div className="service-icon">
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"
+                  fill="currentColor"
+                />
+              </svg>
+            </div>
+            <h3 className="service-title">AI Chatbots</h3>
+            <p className="service-body">
+              Custom-trained assistants that handle your customers around the
+              clock — so you don&apos;t have to.
+            </p>
+          </div>
+
+          <div className="service-card">
+            <div className="service-icon">
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"
+                  fill="currentColor"
+                />
+              </svg>
+            </div>
+            <h3 className="service-title">WhatsApp Integration</h3>
+            <p className="service-body">
+              Meet your customers where they already are. Deploy intelligent
+              agents directly into WhatsApp.
+            </p>
+          </div>
+
+          <div className="service-card">
+            <div className="service-icon">
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"
+                  fill="currentColor"
+                />
+              </svg>
+            </div>
+            <h3 className="service-title">Workflow Automations</h3>
+            <p className="service-body">
+              Eliminate the repetitive work. We automate your business processes
+              so your team can focus on what actually matters.
+            </p>
+          </div>
+        </div>
+
+        <footer className="footer flex items-center">
+          <span>
+            &copy; {new Date().getFullYear()} Phandai. All rights reserved.
+          </span>
+          <span className="w-[6px] h-[6px] rounded-full bg-white opacity-[0.4] mt-[2px]">·</span>
+          <a href="mailto:hello@phand.ai" className="footer-link">
+            hello@phand.ai
+          </a>
+        </footer>
+      </div>
+    </main>
   );
 }
