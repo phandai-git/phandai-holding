@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 
-const API_URL = "https://rklxwoy2kf.execute-api.us-east-1.amazonaws.com/waitlist";
+const API_URL = "https://l4c4v60hif.execute-api.eu-west-3.amazonaws.com/waitlist";
 
 export default async function POST(req: NextRequest) {
   try {
