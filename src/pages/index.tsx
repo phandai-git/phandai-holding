@@ -15,7 +15,7 @@ export default function Home() {
     }
     setStatus("loading");
     try {
-      const res = await fetch("/api/waitlist", {
+      const res = await fetch("https://l4c4v60hif.execute-api.eu-west-3.amazonaws.com/waitlist", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email }),
