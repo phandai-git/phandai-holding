@@ -15,7 +15,7 @@ export default async function POST(req: NextRequest) {
 
     const res = await fetch(API_URL, {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: { "Content-Type": "application/json", "Access-Control-Allow-Origin": "https://phand.ai" },
       body: JSON.stringify({ email }),
     });
 
