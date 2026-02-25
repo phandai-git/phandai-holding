@@ -26,7 +26,7 @@ export default function Home() {
             Phand<span className="ai">.ai</span>
           </div>
         </div>
-        <p className="font-serif font-bold text-4xl text-on-dark tracking-tight">
+        <p className="font-serif font-bold text-4xl text-on-dark tracking-tight text-center">
           Your business, always on.
         </p>
         <div className="hero">
