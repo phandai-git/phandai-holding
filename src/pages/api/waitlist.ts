@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 
 const API_URL = "https://rklxwoy2kf.execute-api.us-east-1.amazonaws.com/waitlist";
 
-export async function POST(req: NextRequest) {
+export default async function POST(req: NextRequest) {
   try {
     const { email } = await req.json();
 
