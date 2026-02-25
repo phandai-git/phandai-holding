@@ -1,4 +1,33 @@
+import { useState } from "react";
+
 export default function Home() {
+  const [email, setEmail] = useState("");
+  const [status, setStatus] = useState<
+    "idle" | "loading" | "success" | "error"
+  >("idle");
+  const [message, setMessage] = useState("");
+
+  const handleSubmit = async () => {
+    if (!email || !email.includes("@")) {
+      setStatus("error");
+      setMessage("Please enter a valid email address.");
+      return;
+    }
+    setStatus("loading");
+    try {
+      const res = await fetch("/api/waitlist", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email }),
+      });
+      const data = await res.json();
+      setStatus("success");
+      setMessage(data.message);
+    } catch {
+      setStatus("error");
+      setMessage("Something went wrong. Try again.");
+    }
+  };
   return (
     <main className="holding-root">
       <div className="holding-inner">
@@ -44,12 +73,30 @@ export default function Home() {
               type="email"
               placeholder="your@email.com"
               className="waitlist-input"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              onKeyDown={(e) => e.key === "Enter" && handleSubmit()}
+              disabled={status === "loading" || status === "success"}
             />
-            <button className="waitlist-btn">Get Early Access</button>
+            <button
+              className="waitlist-btn"
+              onClick={handleSubmit}
+              disabled={status === "loading" || status === "success"}
+            >
+              {status === "loading"
+                ? "Joining..."
+                : status === "success"
+                  ? "You're in!"
+                  : "Get Early Access"}
+            </button>
           </div>
-          <p className="waitlist-note">
-            No spam. Just a heads-up when we launch.
-          </p>
+          {message && (
+            <p
+              className={`waitlist-note ${status === "error" ? "waitlist-error" : ""}`}
+            >
+              {message}
+            </p>
+          )}
         </div>
 
         <div className="services">
@@ -124,7 +171,9 @@ export default function Home() {
           <span>
             &copy; {new Date().getFullYear()} Phandai. All rights reserved.
           </span>
-          <span className="w-[6px] h-[6px] rounded-full bg-white opacity-[0.4] mt-[2px]">·</span>
+          <span className="w-[6px] h-[6px] rounded-full bg-white opacity-[0.4] mt-[2px]">
+            ·
+          </span>
           <a href="mailto:hello@phand.ai" className="footer-link">
             hello@phand.ai
           </a>
